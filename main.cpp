@@ -20,6 +20,7 @@ void Menu()
         cout << "1. Crear cola." << endl;
         cout << "2. Encolar dato." << endl;
         cout << "3. Está vacia?." << endl;
+        cout << "4. Devuelve el ultimo dato." << endl;
         cout << "0. Salir." << endl;
         
         cin >> opcion;
@@ -49,6 +50,18 @@ void Menu()
                 Error("Cola con elementos.");
             }
         }       
+        else if(opcion == 4 && creado == true)
+        {
+            if(q == NULL)
+            {
+                Error("No hay datos en la cola.");
+            }
+            else
+            {
+                int res = ultimo(q);
+                cout << "ULTIMO DATO DE LA COLA : " << res << endl;
+            }
+        }
         else if(opcion == 0)
         {
             salir = false;

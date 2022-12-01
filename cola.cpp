@@ -26,24 +26,30 @@ bool isEmpty(Cola q)
 
 Cola enqueue(Cola & q, int x)
 {
-    Cola primero = q;
 
     Cola aux = new(nodo_cola);
     aux->dato = x;
 
     if(q == NULL)
-    {
-        aux->sig = NULL;
-        q = aux;
-    }else
-    {
-        while(q->sig != NULL)
-        {
-            q = q->sig;
-        }       
+    {   
         aux->sig = NULL;
         q = aux;
     }
+    else
+    {     
+        aux->sig = q;
+        q = aux;
+    }
 
-    return primero;
+    return q;
+};
+
+int ultimo(Cola q)
+{
+    while(q->sig != NULL)
+    {
+        q = q->sig;
+    }
+
+    return q->dato;
 };
